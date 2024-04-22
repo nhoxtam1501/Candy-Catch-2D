@@ -20,7 +20,7 @@ public class BoundaryController : MonoBehaviour
     {
         if (collision.gameObject.tag.Equals("Candy"))
         {
-           
+            GameManager.Instance.DecrementLife();
             Destroy(collision.gameObject);
         }
     }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,10 +12,10 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private float speed = 3;
+   
     public static PlayerController Instance;
+    
 
-    [SerializeField]
-    private int lives;
 
     private void Awake()
     {
@@ -26,8 +27,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        lives = 5;
-        print(lives);
+
     }
 
     // Update is called once per frame
@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.tag.Equals("Candy"))
         {
-
+            GameManager.Instance.IncrementScore();
             Destroy(collision.gameObject);
  
         }
